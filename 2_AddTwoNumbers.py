@@ -77,4 +77,7 @@ if __name__ == '__main__':
  
     
  
-  
+  #https://www.geeksforgeeks.org/add-two-numbers-represented-by-linked-list/
+    
+   #https://medium.com/analytics-vidhya/a-brief-overview-of-linked-list-in-python-eaf4aa8821be
+#https://realpython.com/linked-lists-python/#:~:text=Linked%20lists%20are%20an%20ordered,part%20of%20their%20own%20elements.
