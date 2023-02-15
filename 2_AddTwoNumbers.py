@@ -12,6 +12,9 @@ class ListNode(object):
         
         printval=self.next.next
         print (printval.val)
+        
+        printval=self.next.next.next
+        print (printval)
 
             
             
@@ -48,3 +51,7 @@ second = ListNode(564)
 
 ans=Solution().addTwoNumbers(first,second)
 ans.printList()
+
+
+
+
