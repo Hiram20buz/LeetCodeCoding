@@ -1,8 +1,21 @@
 # Definition for singly-linked list.
-# class ListNode(object):
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
+class ListNode(object):
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+    def printList(self):
+        printval=self.val
+        print (printval)
+        
+        printval=self.next
+        print (printval.val)
+        
+        printval=self.next.next
+        print (printval.val)
+
+            
+            
+
 class Solution(object):
     def addTwoNumbers(self, l1, l2):
         """
@@ -10,74 +23,28 @@ class Solution(object):
         :type l2: ListNode
         :rtype: ListNode
         """
+        result = ListNode(0)
+        result_tail = result
+        carry = 0
+                
+        while l1 or l2 or carry:            
+            val1  = (l1.val if l1 else 0)
+            val2  = (l2.val if l2 else 0)
+            carry, out = divmod(val1+val2 + carry, 10)    
+                      
+            result_tail.next = ListNode(out)
+            result_tail = result_tail.next                      
+            
+            l1 = (l1.next if l1 else None)
+            l2 = (l2.next if l2 else None)
+               
+        return result.next
+        
+        
+ 
+first = ListNode(243)
+second = ListNode(564)
 
 
-###
-class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-         
-class ListNode:
-    def __init__(self):
-        self.head = None
-    def push(self, new_data):
-        new_node = Node(new_data)
-        new_node.next = self.head
-        self.head = new_node
-         
-    def printl(self):
-        n = self.head
-        val=[]
-        while n:
-            val.append(n.data)
-            n = n.next
-        #print()
-        return val
- 
- 
-class Solution:
-    def addTwoNumbers(self,l1: ListNode, l2: ListNode):
-        num1, num2 = 0, 0
-        while first.head:
-            num1 = num1*10 + first.head.data
-            first.head = first.head.next
-        while second.head:
-            num2 = num2*10 + second.head.data
-            second.head = second.head.next
-        num3 = num1 + num2
-        temp = ListNode()
-        while num3:
-            last = num3 % 10
-            temp.push(last)
-            num3 = num3 // 10
-        return temp
- 
-if __name__ == '__main__':
-    first = ListNode()
-    second = ListNode()
-    first.push(9)
-    first.push(9)
-    first.push(9)
-    first.push(9)
-    first.push(9)
-    first.push(9)
-    first.push(9)
-
-    print(first.printl())
- 
-    second.push(9)
-    second.push(9)
-    second.push(9)
-    second.push(9)
-    print(second.printl())
-    
-    ans=Solution().addTwoNumbers(first,second)
-    print(ans.printl())
- 
-    
- 
-  #https://www.geeksforgeeks.org/add-two-numbers-represented-by-linked-list/
-    
-   #https://medium.com/analytics-vidhya/a-brief-overview-of-linked-list-in-python-eaf4aa8821be
-#https://realpython.com/linked-lists-python/#:~:text=Linked%20lists%20are%20an%20ordered,part%20of%20their%20own%20elements.
+ans=Solution().addTwoNumbers(first,second)
+ans.printList()
