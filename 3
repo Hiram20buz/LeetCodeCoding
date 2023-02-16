@@ -39,7 +39,9 @@ def sInString(a,b):
         return -1
         
 
-
+maxi=[]
 for letter in substrings(texto):
-    print(sInString(letter,ori))
+    maxi.append(sInString(letter,ori))
     
+    
+print(max(maxi))
