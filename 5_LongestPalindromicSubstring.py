@@ -1,36 +1,18 @@
 class Solution(object):
     ###
-    ###Substrings
-    def substrings(self,test_str):
-        res = [test_str[i: j] for i in range(len(test_str))
-              for j in range(i + 1, len(test_str) + 1)]
-              
-        return res
-    
-      
-    
-    #print(substrings("babad"))
-    
-    ###
     ###Palidrome
     def isPalindrome(self,a):
-        b=list(a)
-        c=[]
-        for i in range(len(b)):
-            c.append(b[len(b)-1-i])
-            
-        if(b==c):
-            return 1
-        else:
-            return -1
+        return a == a[::-1]
             
          
          
     def longestPalindrome(self,s) :
+        res = [s[i: j] for i in range(len(s))
+              for j in range(i + 1, len(s) + 1)]
         pal = {}
         
         #print(a_dict)
-        for palabra in self.substrings(s):
+        for palabra in res:
             if(self.isPalindrome(palabra)==1):
                # pal.append(len(palabra))
                pal[palabra] = len(palabra)
@@ -44,5 +26,5 @@ class Solution(object):
    
    
 
-w=Solution().longestPalindrome("babad")
+w=Solution().longestPalindrome("civilwartestingwhetherthatnaptionoranynartionsoconceivedandsodedicatedcanlongendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecometodedicpateaportionofthatfieldasafinalrestingplaceforthosewhoheregavetheirlivesthatthatnationmightliveItisaltogetherfangandproperthatweshoulddothisButinalargersensewecannotdedicatewecannotconsecratewecannothallowthisgroundThebravelmenlivinganddeadwhostruggledherehaveconsecrateditfaraboveourpoorponwertoaddordetractTgheworldadswfilllittlenotlenorlongrememberwhatwesayherebutitcanneverforgetwhattheydidhereItisforusthelivingrathertobededicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfarsonoblyadvancedItisratherforustobeherededicatedtothegreattdafskremainingbeforeusthatfromthesehonoreddeadwetakeincreaseddevotiontothatcauseforwhichtheygavethelastpfullmeasureofdevotionthatweherehighlyresolvethatthesedeadshallnothavediedinvainthatthisnationunsderGodshallhaveanewbirthoffreedomandthatgovernmentofthepeoplebythepeopleforthepeopleshallnotperishfromtheearth")
 print(w)  
