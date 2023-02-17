@@ -1,9 +1,4 @@
 class Solution(object):
-    def median(self,lst):
-        n = len(lst)
-        s = sorted(lst)
-        return (s[n//2-1]/2.0+s[n//2]/2.0, s[n//2])[n % 2] if n else None
-    
     def findMedianSortedArrays(self, nums1, nums2):
         i = 0
         j = 0
@@ -26,12 +21,22 @@ class Solution(object):
         # sort the whole array arr3
         arr3.sort()
         
-        a=self.median(arr3)
+        #a=self.median(arr3)
+        
+        # initializing list
+        #test_list = [4, 5, 8, 9, 10, 17]
+        # Median of list
+        # Using statistics.median()
+        mid = len(arr3) // 2
+        res = (arr3[mid] + arr3[~mid]) / 2
+         
+        # Printing result
+        a=float(res)
         return a
+        
         
         
 #nums1 = [1,2]
 #nums2 = [3,4]
 ans=Solution().findMedianSortedArrays(nums1 = [1,3], nums2 = [2])
 print(ans)
-            
