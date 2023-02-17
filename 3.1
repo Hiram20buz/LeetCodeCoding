@@ -43,8 +43,16 @@ class Solution(object):
         for letter in self.substrings(texto):
             maxi.append(self.sInString(letter,s))
             
-            
-        print(max(maxi))
+        maximo=0
+ 
+        try: 
+            maximo = max(maxi)
+            #print(maximo)
+        except:
+            print('Input Sequence is Empty')
+        return maximo
         
         
-a=Solution().lengthOfLongestSubstring("abcabcbb")
+a=Solution().lengthOfLongestSubstring("dvdf")
+
+print(a)
