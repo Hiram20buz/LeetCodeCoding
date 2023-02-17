@@ -1,11 +1,4 @@
 class Solution(object):
-    ###
-    ###Palidrome
-    def isPalindrome(self,a):
-        return a == a[::-1]
-            
-         
-         
     def longestPalindrome(self,s) :
         res = [s[i: j] for i in range(len(s))
               for j in range(i + 1, len(s) + 1)]
@@ -13,7 +6,7 @@ class Solution(object):
         
         #print(a_dict)
         for palabra in res:
-            if(self.isPalindrome(palabra)==1):
+            if(palabra == palabra[::-1]):
                # pal.append(len(palabra))
                pal[palabra] = len(palabra)
         #print(pal)       
