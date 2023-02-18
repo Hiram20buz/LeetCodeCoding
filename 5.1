@@ -1,0 +1,20 @@
+class Solution(object):
+    def longestPalindrome(self,s) :
+        pal = {}
+        
+        #print(a_dict)
+        for palabra in [  s[i: j]  for i in range(len(s)) for j in range(i + 1, len(s) + 1) if  s[i: j] ==  s[i: j][::-1]]:
+            pal[palabra] = len(palabra)
+        #print(pal)       
+        
+        return max(pal, key=pal.get)
+        
+        
+                
+   
+   
+
+w=Solution().longestPalindrome("fkyidosnupvunmklebjiepwdmfhqjfjgtcdivzgibcewxviirtneumvhcwzvstvtnzrnzknehahdipswtvgmqhmexnjtqcpngvojdxmhwqhrdcgybehvrfsqkroaztrhyeuuzkthfhwtbfnyghlzjqsqjpqvsrkabcxylpgylzzgyzmhruqyezfcvzcmzzuvtxlbfyukhvnytetagrhsebodddqiowahvflakfkefzlwkdjyxtymypkqkeniriybvdcfnqogilpeiviatavcbtxogxenbfhpfqklrekqefzjunpzrenqhorpqnhxllceubkndibdypbmbjscnryafertbursmghissihgmsrubtrefayrncsjbmbpydbidnkbuecllxhnqprohqnerzpnujzfeqkerlkqfphfbnexgoxtbcvataiviepligoqnfcdvbyirinekqkpymytxyjdkwlzfekfkalfvhawoiqdddobeshrgatetynvhkuyfblxtvuzzmczvcfzeyqurhmzygzzlygplyxcbakrsvqpjqsqjzlhgynfbtwhfhtkzuueyhrtzaorkqsfrvhebygcdrhqwhmxdjovgnpcqtjnxemhqmgvtwspidhahenkznrzntvtsvzwchvmuentriivxwecbigzvidctgjfjqhfmdwpeijbelkmnuvpunsodiykf")
+print(w) 
+
+#https://blog.finxter.com/how-to-find-the-longest-string-in-a-python-list/#:~:text=Use%20Python's%20built%2Din%20max,string%20will%20be%20the%20maximum.
