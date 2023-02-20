@@ -1,8 +1,8 @@
 class Solution(object):
     def longestPalindrome(self,s) :
-        res = [  s[i: j]  for i in range(len(s)) for j in range(i + 1, len(s) + 1) if  s[i: j] ==  s[i: j][::-1]]      
+        res = [  s[i: j]  for i in range(len(s)) for j in range(i + 1, len(s) + 1) if  s[i: j] ==  s[i: j][::-1]]
         
-        return max(res, key=len))
+        return max(res, key=len)
         
         
                 
@@ -12,4 +12,6 @@ class Solution(object):
 w=Solution().longestPalindrome("fkyidosnupvunmklebjiepwdmfhqjfjgtcdivzgibcewxviirtneumvhcwzvstvtnzrnzknehahdipswtvgmqhmexnjtqcpngvojdxmhwqhrdcgybehvrfsqkroaztrhyeuuzkthfhwtbfnyghlzjqsqjpqvsrkabcxylpgylzzgyzmhruqyezfcvzcmzzuvtxlbfyukhvnytetagrhsebodddqiowahvflakfkefzlwkdjyxtymypkqkeniriybvdcfnqogilpeiviatavcbtxogxenbfhpfqklrekqefzjunpzrenqhorpqnhxllceubkndibdypbmbjscnryafertbursmghissihgmsrubtrefayrncsjbmbpydbidnkbuecllxhnqprohqnerzpnujzfeqkerlkqfphfbnexgoxtbcvataiviepligoqnfcdvbyirinekqkpymytxyjdkwlzfekfkalfvhawoiqdddobeshrgatetynvhkuyfblxtvuzzmczvcfzeyqurhmzygzzlygplyxcbakrsvqpjqsqjzlhgynfbtwhfhtkzuueyhrtzaorkqsfrvhebygcdrhqwhmxdjovgnpcqtjnxemhqmgvtwspidhahenkznrzntvtsvzwchvmuentriivxwecbigzvidctgjfjqhfmdwpeijbelkmnuvpunsodiykf")
 print(w) 
 
-#https://blog.finxter.com/how-to-find-the-longest-string-in-a-python-list/#:~:text=Use%20Python's%20built%2Din%20max,string%20will%20be%20the%20maximum.
+#https://blog.finxter.com/how-to-find-the-longest-string-in-a-python-list/#:~:text=Use%20Python's%20built%2Din%20max,string%20will%20be%20the%20maximum.       
+             
+  
