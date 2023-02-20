@@ -1,0 +1,21 @@
+from itertools import combinations
+class Solution(object):
+    def longestPalindrome(self,s) :
+        
+        return max([s[x:y] for x, y in combinations(
+            range(len(s) + 1), r = 2) if  s[x: y] ==  s[x: y][::-1]], key=len)
+        
+        
+                
+   
+   
+
+w=Solution().longestPalindrome("fkyidosnupvunmklebjiepwdmfhqjfjgtcdivzgibcewxviirtneumvhcwzvstvtnzrnzknehahdipswtvgmqhmexnjtqcpngvojdxmhwqhrdcgybehvrfsqkroaztrhyeuuzkthfhwtbfnyghlzjqsqjpqvsrkabcxylpgylzzgyzmhruqyezfcvzcmzzuvtxlbfyukhvnytetagrhsebodddqiowahvflakfkefzlwkdjyxtymypkqkeniriybvdcfnqogilpeiviatavcbtxogxenbfhpfqklrekqefzjunpzrenqhorpqnhxllceubkndibdypbmbjscnryafertbursmghissihgmsrubtrefayrncsjbmbpydbidnkbuecllxhnqprohqnerzpnujzfeqkerlkqfphfbnexgoxtbcvataiviepligoqnfcdvbyirinekqkpymytxyjdkwlzfekfkalfvhawoiqdddobeshrgatetynvhkuyfblxtvuzzmczvcfzeyqurhmzygzzlygplyxcbakrsvqpjqsqjzlhgynfbtwhfhtkzuueyhrtzaorkqsfrvhebygcdrhqwhmxdjovgnpcqtjnxemhqmgvtwspidhahenkznrzntvtsvzwchvmuentriivxwecbigzvidctgjfjqhfmdwpeijbelkmnuvpunsodiykf")
+print(w) 
+
+#https://blog.finxter.com/how-to-find-the-longest-string-in-a-python-list/#:~:text=Use%20Python's%20built%2Din%20max,string%20will%20be%20the%20maximum.       
+             
+  
+             
+  
+  
