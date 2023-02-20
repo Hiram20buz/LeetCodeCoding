@@ -1,4 +1,5 @@
 # Python program to implement Manacher's Algorithm
+#https://www.geeksforgeeks.org/manachers-algorithm-linear-time-longest-palindromic-substring-part-1/
 class Solution(object):
     def longestPalindrome(self,s):
         N = len(s)
