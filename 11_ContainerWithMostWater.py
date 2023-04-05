@@ -1,4 +1,5 @@
 # 11. Container With Most Water
+# la longoitud es la que importa no la altura
 class Solution:
     def print2largest(self,arr, arr_size):
         # There should be atleast
