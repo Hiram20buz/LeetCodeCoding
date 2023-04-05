@@ -40,25 +40,28 @@ class Solution:
         
     def maxArea(self, height: list[int]) -> int:
         result=[]
-        
-        dif=self.indices(height, max(height))
-        base=dif[len(dif)-1]-dif[0]
-        result.append(base*max(height))
-        
+        if(self.print2largest(height, len(height))!=0):
+            dif=self.indices(height, max(height))
+            base=dif[len(dif)-1]-dif[0]
+            print(base)
+            result.append(base*max(height))
+            
+        print(self.print2largest(height, len(height))==0)
+        if(self.print2largest(height, len(height))==0):
+            n = len(height)
+            dif1=self.indices(height,self.print2largest(height, n) )
+            base2=dif1[len(dif1)-1]-dif1[0]
+            result.append(base2*self.print2largest(height, n))
         n = len(height)
-        dif1=self.indices(height,self.print2largest(height, n) )
-        base=dif1[len(dif1)-1]-dif1[0]
-        result.append(base*self.print2largest(height, n))
+        if(min(self.indices(height, max(height))) < min(self.indices(height,self.print2largest(height, n) ))):
+            base3=self.indices(height,self.print2largest(height, n) )[len(self.indices(height,self.print2largest(height, n) ))-1]-self.indices(height, max(height))[0]
+            result.append(base3*self.print2largest(height, n))
+            
         
-        if(min(dif) < min(dif1)):
-            base=dif1[len(dif1)-1]-dif[0]
-            result.append(base*self.print2largest(height, n))
-            
-            
         return max(result)
         
       
   
-a=Solution().maxArea(height = [1,8,6,2,5,4,8,3,7])
+a=Solution().maxArea([4,3,2,1,4])
 
 print(a)
