@@ -70,13 +70,21 @@ class Solution:
             base3=self.indices(height,self.print2largest(height, n) )[len(self.indices(height,self.print2largest(height, n) ))-1]-self.indices(height, max(height))[0]
             result.append(base3*self.print2largest(height, n))
         #print(self.print2largest(height, len(height))==0)
+        if(min(self.indices(height, max(height))) == len(height)-2):
+            base3=self.indices(height,self.print2largest(height, n) )[0]-self.indices(height, max(height))[0]
+            result.append(base3*max(height))
     
             
-        
+        #print(result)
+        if(height[len(height)-1] > height[0] and max(height)==height[len(height)-1]):
+            base3=len(height)-1
+            #print(base3)
+            result.append(base3*height[0])
+            
         return max(result)
         
       
   
-a=Solution().maxArea([1,2,4,3])
+a=Solution().maxArea([1,8,6,2,5,4,8,25,7])
 
 print(a)
