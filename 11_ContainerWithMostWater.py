@@ -69,8 +69,6 @@ class Solution:
         if(min(self.indices(height, max(height))) < min(self.indices(height,self.print2largest(height, n) ))):
             base3=self.indices(height,self.print2largest(height, n) )[len(self.indices(height,self.print2largest(height, n) ))-1]-self.indices(height, max(height))[0]
             result.append(base3*self.print2largest(height, n))
-            
-        
         #print(self.print2largest(height, len(height))==0)
     
             
