@@ -1,6 +1,6 @@
 #20. Valid Parentheses
 class Solution:
-    def is_valid(self,s: str) -> bool:
+    def isValid(self,s: str) -> bool:
         stack = []
         for char in s:
             if char in '({[':
@@ -18,5 +18,5 @@ class Solution:
                     return False
         return len(stack) == 0
 
-a=Solution().is_valid("(]")
+a=Solution().isValid("(]")
 print(a)
