@@ -1,40 +1,54 @@
 num = 3999
+num1 = 664
 
-thousands = num // 1000
-hundreds = (num % 1000) // 100
-tens = (num % 100) // 10
-units = (num % 10)
-
-print(thousands, hundreds, tens, units)
-# expected output: 1 2 3 4
 roman = {
-    "I": 1,
-    "V": 5,
-    "X": 10,
-    "L": 50,
-    "C": 100,
-    "D": 500,
-    "M": 1000
-        }
-        
-def get_nth_key(dictionary, n=0):
-    if n < 0:
-        n += len(dictionary)
-    for i, key in enumerate(dictionary.keys()):
-        if i == n:
-            return key
-    raise IndexError("dictionary index out of range") 
-    
-print(get_nth_key(roman, 0))
-print(list(roman.keys()).index("D"))
+    1: "I",
+    5: "V",
+    10: "X",
+    50: "L",
+    100: "C",
+    500: "D",
+    1000: "M"
+    }
 
-if(900-roman['D']>300):
-    if(roman['M']-roman['C']==900):
-        print("CM")
-    
-'''
-if(int(num/roman['M'])<4):
-            print('M'*int(num/roman['M']))
-            num=num%roman['M']
-            
-'''
+def thousands(n):
+    return f"{roman[1000]}" * (n // 1000)
+
+def hundreds(n):
+    if ((n % 1000) >= 900):
+        return "CM"
+    elif ((n % 1000) == 500):
+        return "D"
+    elif ((n % 1000) < 400):
+        return f"{roman[100]}" * ((n % 1000)//100)
+    elif ((n % 1000) >= 400 and (n % 1000) < 500 ):
+        return "CD"
+    elif ((n % 1000) > 500 and (n % 1000) < 900 ):
+        return "D" + f"{roman[100]}" * (((n % 1000)//100) - 5)
+
+def tens(n):
+    if ((n % 100) >= 90):
+        return "XC"
+    elif ((n % 100) == 50):
+        return "L"
+    elif ((n % 100) < 40):
+        return f"{roman[10]}" * ((n % 100)//10)
+    elif ((n % 100) >= 40 and (n % 100) < 50 ):
+        return "XL"
+    elif ((n % 100) > 50 and (n % 100) < 90 ):
+        return "L" + f"{roman[10]}" * (((n % 100)//10) - 5)
+
+def units(n):
+    if ((n % 10) >= 9):
+        return "IX"
+    elif ((n % 10) == 5):
+        return "V"
+    elif ((n % 10) < 4):
+        return f"{roman[1]}" * ((n % 10)//1)
+    elif ((n % 10) >= 4 and (n % 10) < 5 ):
+        return "IV"
+    elif ((n % 10) > 5 and (n % 10) < 9 ):
+        return "V" + f"{roman[1]}" * (((n % 10)//1) - 5)
+
+
+print(thousands(num1) + hundreds(num1) + tens(num1) + units(num1))
