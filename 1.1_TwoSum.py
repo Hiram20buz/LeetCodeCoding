@@ -14,6 +14,6 @@ class Solution(object):
         if not indices:
             return [index for index, value in enumerate(nums) if value == double]
        
-a = Solution().twoSum([3, 3], 6)
 
+a = Solution().twoSum([3, 3], 6)
 print(a)
