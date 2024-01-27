@@ -17,3 +17,4 @@ class Solution(object):
 
 a = Solution().twoSum([3, 3], 6)
 print(a)
+
