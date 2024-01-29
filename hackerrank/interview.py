@@ -5,6 +5,7 @@ lst = [0] * len(queries)
 for count, ele in enumerate(queries):
     #print(count)
     #print(ele)
+    
     for element in s:
         if element == s[ele]:
             lst[count] += 1
@@ -14,5 +15,3 @@ for i in range(len(lst)):
         lst[i] = -1
 
 print(lst)
-
-
