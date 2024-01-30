@@ -21,8 +21,7 @@ class Solution(object):
             maxLength = max(len(test), maxLength)
         return maxLength
      
-     
-    
+          
 # Driver Code
 a=Solution().lengthOfLongestSubstring("dvdf")
 print(a)
