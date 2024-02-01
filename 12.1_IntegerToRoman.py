@@ -8,7 +8,6 @@ class Solution:
     500: "D",
     1000: "M"
     }
-
     
     def intToRoman(self, num: int) -> str:
         return self.thousands(num) + self.hundreds(num) + self.tens(num) + self.units(num)
