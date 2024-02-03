@@ -3,37 +3,91 @@ class ListNode:
         self.val = val
         self.next = next
 
-def remove_nth_from_end(head, n):
-    # Create a dummy node to handle edge cases
-    dummy = ListNode(0)
-    dummy.next = head
-    first = dummy
-    second = dummy
-
-    # Move the first pointer n+1 steps ahead
-    for _ in range(n + 1):
-        first = first.next
-
-    # Move first to the end, maintaining the gap between first and second
-    while first:
-        first = first.next
-        second = second.next
-
-    # Remove the nth node from the end
-    second.next = second.next.next
-
-    return dummy.next
 
 class Solution:
-    def removeNthFromEnd(self, head, n: int):
-        return remove_nth_from_end(head, n)
+    def merge_sort(self, head):
+        if not head or not head.next:
+            return head
 
+        # Find the middle of the linked list
+        mid = self.get_middle(head)
+        next_to_mid = mid.next
+        mid.next = None
 
-linked_list = ListNode(1, ListNode(2, ListNode(4)))
-linked_list1 = ListNode(1, ListNode(3, ListNode(4)))
+        # Recursively sort both halves
+        left = self.merge_sort(head)
+        right = self.merge_sort(next_to_mid)
 
-#a = Solution().removeNthFromEnd(linked_list, 2)
-# Print the updated linked list
-while linked_list1:
-    print(linked_list1.val, end=" ")
-    linked_list1 = linked_list1.next
+        # Merge the sorted halves
+        return self.merge(left, right)
+
+    def get_middle(self, head):
+        if not head:
+            return head
+
+        slow = head
+        fast = head
+
+        while fast.next and fast.next.next:
+            slow = slow.next
+            fast = fast.next.next
+
+        return slow
+
+    def merge(self, left, right):
+        dummy = ListNode()
+        current = dummy
+
+        while left and right:
+            if left.val < right.val:
+                current.next = left
+                left = left.next
+            else:
+                current.next = right
+                right = right.next
+            current = current.next
+
+        if left:
+            current.next = left
+        if right:
+            current.next = right
+
+        return dummy.next
+
+    def mergeTwoLists(self, list1, list2):
+        dummy = ListNode()
+        current = dummy
+        list1 = self.merge_sort(list1)
+        list2 = self.merge_sort(list2)
+        
+        # Iterate through both lists
+        while list1 and list2:
+            # Compare values of nodes and append the smaller one
+            if list1.val < list2.val:
+                current.next = list1
+                list1 = list1.next
+            else:
+                current.next = list2
+                list2 = list2.next
+            current = current.next
+        
+        # Append remaining nodes if any
+        if list1:
+            current.next = list1
+        elif list2:
+            current.next = list2
+        
+        return dummy.next
+
+# Example usage
+# Create two sorted linked lists
+l1 = ListNode(1, ListNode(1, ListNode(4)))
+l2 = ListNode(9, ListNode(8, ListNode(4)))
+
+# Merge the two lists
+merged_list = Solution().mergeTwoLists(l1, l2)
+
+# Print the merged list
+while merged_list:
+    print(merged_list.val, end=" ")
+    merged_list = merged_list.next
