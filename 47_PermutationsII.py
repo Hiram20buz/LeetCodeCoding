@@ -1,7 +1,7 @@
 class Solution:
     def permuteUnique(self, nums: list[int]) -> list[list[int]]:
         def permutaciones(s=[]):
-            if len(s) == 2:  # Base case: If the length of s equals the length of nums, append a copy of s to l
+            if len(s) == len(nums):  # Base case: If the length of s equals the length of nums, append a copy of s to l
                 #l.append(s.copy())  # Append a copy of s to l
                 l.add(tuple(s.copy()))
                 return
