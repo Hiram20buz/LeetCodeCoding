@@ -1,33 +1,30 @@
+from collections import defaultdict
+
 class Solution:
     def permuteUnique(self, nums: list[int]) -> list[list[int]]:
-        def permutaciones(s=[]):
-            if len(s) == 2:  # Base case: If the length of s equals the length of nums, append a copy of s to l
-                #l.append(s.copy())  # Append a copy of s to l
-                l.add(tuple(s.copy()))
+        num2freq = defaultdict(int)
+        n = len(nums)
+        out = []
+        for num in nums:
+            num2freq[num]+=1
+
+        def backtrack(seq, hashMap):
+            if len(seq) == 2:
+                out.append(seq[:])
                 return
 
-            for i in range(len(nums)):
-                if not used[i]:
-                    s.append(nums[i])
-                    used[i] = True  # Mark the current element as used
-                    permutaciones(s)
-                    s.pop()  # Backtrack by removing the last element appended to s
-                    used[i] = False  # Unmark the current element after backtracking
+            for num in hashMap:
+                if hashMap[num]>0:
+                    seq.append(num)
+                    hashMap[num]-=1
 
-        #l = []
-        nums.sort()
-        l = set()
-        used = [False] * len(nums)  # Initialize a boolean array to keep track of used elements
-        permutaciones()
-        return l
-        '''
-        unique_elements = []
+                    backtrack(seq, hashMap)
 
-        for sublist in l:
-            if sublist not in unique_elements:
-                unique_elements.append(sublist)
+                    seq.pop()
+                    hashMap[num]+=1
+
+        backtrack([], num2freq)
+        return out
+
         
-        return unique_elements
-        '''
-
 print(Solution().permuteUnique([1,2,3,4]))
