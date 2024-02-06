@@ -30,4 +30,4 @@ class Solution:
         return unique_elements
         '''
 
-print(Solution().permuteUnique([1,2,3,4]))
+print(Solution().permuteUnique([1,2,3]))
