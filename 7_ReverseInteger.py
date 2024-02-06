@@ -17,5 +17,7 @@ class Solution(object):
               return a
           else:
               return 0
+
+              
 ob1 = Solution()
 print(ob1.reverse(-123))
