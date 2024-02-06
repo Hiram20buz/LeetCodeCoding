@@ -24,7 +24,16 @@ class Solution:
                     hashMap[num]+=1
 
         backtrack([], num2freq)
-        return out
+        for lst in out:
+            lst.sort()
+        #return out
+        unique_elements = []
+
+        for sublist in out:
+            if sublist not in unique_elements:
+                unique_elements.append(sublist)
+        
+        return unique_elements
 
         
 print(Solution().permuteUnique([1,2,3,4]))
